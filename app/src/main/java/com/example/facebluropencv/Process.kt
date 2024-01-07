@@ -19,7 +19,7 @@ class Process {
     companion object {
         const val MODEL = "face_detection_yunet_2023mar.onnx"
         const val SIZE = 640
-        const val CONFIDENCE_THRESHOLD = 0.2f
+        const val CONFIDENCE_THRESHOLD = 0.4f
         const val NMS_THRESHOLD = 0.4f
     }
 
@@ -88,8 +88,8 @@ class Process {
 
             val face = Mat(input, rect)
             Imgproc.GaussianBlur(face, face, Size(99.0, 99.0), 0.0, 0.0)
-            Imgproc.rectangle(input, rect, rectColor, 5)
-            Imgproc.putText(input, text, point, font, 1.5, textColor, 5)
+            Imgproc.rectangle(input, rect, rectColor, 3)
+            Imgproc.putText(input, text, point, font, 1.3, textColor, 3)
         }
         return input
     }
